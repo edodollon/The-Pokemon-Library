@@ -1,0 +1,45 @@
+.container {
+  background-color: #d03b3b;
+  height: 100vh;
+  padding-top: 2rem;
+  text-align: center;
+
+  h1 {
+    color: #e4cdcd;
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+    text-align: left;
+  }
+
+  .container--buttons {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    //TEMPORARY SEARCH BAR / BUTTON STYLES
+    .search--bar {
+      background-color: #d03b3b;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      color: #e4cdcd;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      height: 4rem;
+      width: 16rem;
+    }
+
+    .sets--button {
+      background-color: #fff;
+      border: none;
+      border-radius: 8px;
+      color: #d03b3b;
+      cursor: pointer;
+      font-size: 1.2rem;
+      height: 4rem;
+      width: 16rem;
+    }
+  }
+}
