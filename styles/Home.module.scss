@@ -4,6 +4,10 @@
   padding-top: 2rem;
   text-align: center;
 
+  ::placeholder {
+    color: #e4cdcd;
+  }
+
   h1 {
     color: #e4cdcd;
     display: inline-block;
@@ -19,14 +23,15 @@
     flex-direction: column;
     margin-top: 4rem;
 
-    //TEMPORARY SEARCH BAR / BUTTON STYLES
     .search--bar {
       background-color: #d03b3b;
       border: 2px solid #fff;
       border-radius: 8px;
       color: #e4cdcd;
+      cursor: pointer;
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      text-align: center;
       height: 4rem;
       width: 16rem;
     }

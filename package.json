@@ -11,7 +11,10 @@
   "dependencies": {
     "@types/node": "^18.7.3",
     "@types/react": "^18.0.17",
+    "axios": "^0.27.2",
     "next": "12.2.5",
+    "pokemon-tcg-sdk-typescript": "^1.3.4",
+    "pokemontcgsdk": "^2.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

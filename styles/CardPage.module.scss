@@ -1,0 +1,70 @@
+.bold-text {
+  font-weight: bold;
+}
+
+@mixin border-style {
+  border: solid 1px #d4d7e2;
+  border-radius: 0.5rem;
+}
+
+.card-page--container {
+  padding: 0 1rem;
+
+  h2 {
+    font-size: 1.125rem;
+  }
+
+  .card-detail--header {
+    h1 {
+      font-size: 23px;
+      margin-bottom: 0;
+    }
+
+    p {
+      color: #767676;
+      margin-top: 0;
+    }
+  }
+
+  .card-image--container {
+    background-color: #eef0f1;
+    border-radius: 0.5rem;
+    // padding: 1rem 0;
+    position: relative;
+    height: 20rem;
+    text-align: center;
+  }
+
+  .card-details--container {
+    @include border-style();
+    padding: 1rem;
+  }
+
+  .card-prices--container {
+    h2 {
+      margin-bottom: 0;
+    }
+
+    p {
+      color: #767676;
+      font-weight: 400;
+      margin-top: 0;
+    }
+
+    ul {
+      @include border-style();
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+      }
+
+      li:nth-child(odd) {
+        background-color: #eef0f1;
+      }
+    }
+  }
+}
