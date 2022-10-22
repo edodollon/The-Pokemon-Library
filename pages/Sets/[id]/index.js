@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Card from "../../../components/Card";
+import Header from "../../../components/Header";
 import classes from "../../../styles/CardsLayout.module.scss";
 
 const axios = require("axios");
@@ -37,6 +38,7 @@ const SingleSetPage = ({ cards }) => {
       <Head>
         <title>{`The Pokemon Library | ${cards[0].set.name}`}</title>
       </Head>
+      <Header />
       <div className={classes["page--container"]}>
         <h1 className={classes["set-name"]}>
           {cards[0].set.name} <span>- {cards[0].set.releaseDate}</span>

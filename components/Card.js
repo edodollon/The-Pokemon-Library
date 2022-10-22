@@ -6,8 +6,8 @@ function Card({ cards }) {
   const singleCard = cards.map((cardDetail) => {
     return (
       <div key={cardDetail.id} className={classes["card--container"]}>
-        <p>{cardDetail.name}</p>
-        <div>
+        {/* <p>{cardDetail.name}</p> */}
+        <div key={cardDetail.id}>
           <Link
             href={{
               pathname: `/Sets/${cardDetail.set.id}/[slug]`,

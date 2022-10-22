@@ -1,11 +1,18 @@
 .container {
   background-color: #d03b3b;
   height: 100vh;
-  padding-top: 2rem;
   text-align: center;
 
   ::placeholder {
     color: #e4cdcd;
+  }
+
+  .flex-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   h1 {

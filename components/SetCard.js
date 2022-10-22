@@ -6,7 +6,6 @@ const SetCard = (props) => {
   return (
     <Link href={`/Sets/${props.id}`}>
       <div className={classes["set-card--container"]}>
-        <h2>{props.name}</h2>
         <div className={classes["logo--container"]}>
           <Image
             src={props.logo}
@@ -21,6 +20,7 @@ const SetCard = (props) => {
         </div>
 
         <div className={classes["set-info--container"]}>
+          <p className={classes["info-setname"]}>{props.name}</p>
           <div>
             <Image
               src={props.symbol}

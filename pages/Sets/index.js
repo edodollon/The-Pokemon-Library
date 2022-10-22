@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import SetCard from "../../components/SetCard";
+import Header from "../../components/Header";
 import classes from "../../styles/SetsPage.module.scss";
 import pokemon from "pokemontcgsdk";
 pokemon.configure({ apiKey: "c801d428-474b-415f-855f-b094a827f699" });
@@ -29,9 +30,10 @@ function SetsPage(props) {
       <Head>
         <title>The Pokemon Library | Sets</title>
       </Head>
+      <Header />
       <div className={classes["sets-page--container"]}>
-        <h1>All Sets Page</h1>
-        {individualSet}
+        <h1>All Sets</h1>
+        <div className={classes["all-sets--container"]}>{individualSet}</div>
       </div>
     </>
   );
