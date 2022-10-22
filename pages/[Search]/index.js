@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Card from "../../components/Card";
 import Pagination from "../../components/Pagination";
+import Header from "../../components/Header";
 import classes from "../../styles/CardsLayout.module.scss";
 
 import pokemon from "pokemontcgsdk";
@@ -59,6 +60,7 @@ function SearchPage() {
       <Head>
         <title>{`The Pokemon Library | Search`}</title>
       </Head>
+      <Header />
       <div className={classes["page--container"]}>
         <form onSubmit={submitSearch}>
           <input
