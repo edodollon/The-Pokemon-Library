@@ -5,6 +5,7 @@ import Card from "../../components/Card";
 import Pagination from "../../components/Pagination";
 import Header from "../../components/Header";
 import classes from "../../styles/CardsLayout.module.scss";
+import searchStyle from "../../styles/Search.module.scss";
 
 import pokemon from "pokemontcgsdk";
 pokemon.configure({ apiKey: "c801d428-474b-415f-855f-b094a827f699" });
@@ -17,6 +18,8 @@ function SearchPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(14);
 
+  const [focus, setFocus] = useState(false);
+
   const lastCard = currentPage * itemsPerPage;
   const firstCard = lastCard - itemsPerPage;
   const currentRecords = cards.slice(firstCard, lastCard);
@@ -25,6 +28,13 @@ function SearchPage() {
   const submitSearch = (e) => {
     e.preventDefault();
     setSearch(!search);
+  };
+
+  const handleEnter = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      e.target.blur();
+    }
   };
 
   // useEffect(() => {
@@ -63,22 +73,41 @@ function SearchPage() {
       <Header />
       <div className={classes["page--container"]}>
         <form onSubmit={submitSearch}>
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.currentTarget.value)}
-          />
-          <button type="submit">Submit</button>
+          <div
+            className={`${searchStyle.searchbar} ${
+              focus && searchStyle["input-is-focused"]
+            }`}
+          >
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.currentTarget.value)}
+              onFocus={() => setFocus(true)}
+              onBlur={() => setFocus(false)}
+              onKeyUp={handleEnter}
+              placeholder="Search for a Card"
+            />
+            <button
+              type="submit"
+              className={focus && searchStyle["button-is-focused"]}
+            >
+              Search
+            </button>
+          </div>
         </form>
-        <h3>Search Page: {query}</h3>
+        <p>
+          {cards.length} results for: '{query}'
+        </p>
+
+        <div className={classes["cards-layout--container"]}>
+          {currentCardArray}
+        </div>
+
         <Pagination
           nPages={nPages}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-        <div className={classes["cards-layout--container"]}>
-          {currentCardArray}
-        </div>
       </div>
     </>
   );

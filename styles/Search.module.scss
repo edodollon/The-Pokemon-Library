@@ -1,0 +1,36 @@
+.searchbar {
+  border: 1px solid #dde1e4;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  z-index: 10;
+
+  input {
+    border: transparent;
+    font-size: 16px !important;
+    line-height: 2rem;
+    padding: 0 0.75rem;
+    width: 85%;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 0 0.75rem;
+  }
+}
+
+.input-is-focused {
+  border: 1px solid green;
+}
+
+.button-is-focused {
+  background-color: green !important;
+  border-radius: 0 0.25rem 0.25rem 0;
+  color: white;
+}
