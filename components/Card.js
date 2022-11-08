@@ -6,7 +6,9 @@ function Card({ cards }) {
   const singleCard = cards.map((cardDetail) => {
     return (
       <div key={cardDetail.id} className={classes["card--container"]}>
-        <p>{cardDetail.name}</p>
+        <p>
+          {cardDetail.name} <br /> {cardDetail.set.id}
+        </p>
         <div key={cardDetail.id}>
           <Link
             href={{
