@@ -32,13 +32,6 @@ function SearchPage() {
     setSearch(!search);
   }
 
-  function handleEnter(e) {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      e.target.blur();
-    }
-  }
-
   // useEffect(() => {
   //   window.localStorage.setItem("Current_Search", query);
   // }, [query]);
@@ -78,7 +71,6 @@ function SearchPage() {
           submitSearch={submitSearch}
           query={query}
           setQuery={setQuery}
-          handleEnter={handleEnter}
         />
         <p>
           {cards.length

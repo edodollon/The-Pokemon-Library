@@ -1,8 +1,15 @@
 import { useState } from "react";
 import searchStyle from "../styles/Search.module.scss";
 
-function SearchBar({ submitSearch, query, setQuery, handleEnter }) {
+function SearchBar({ submitSearch, query, setQuery }) {
   const [focus, setFocus] = useState(false);
+
+  function handleEnter(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      e.target.blur();
+    }
+  }
 
   return (
     <div>

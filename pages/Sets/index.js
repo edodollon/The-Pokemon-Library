@@ -14,7 +14,6 @@ pokemon.configure({ apiKey: "c801d428-474b-415f-855f-b094a827f699" });
 
 function SetsPage(props) {
   const [setsData, setSetsData] = useState([]);
-
   const [query, setQuery] = useState();
 
   function submitSearch(e) {
@@ -23,13 +22,6 @@ function SetsPage(props) {
       pathname: "/Search",
       query: { keyword: `${query}` },
     });
-  }
-
-  function handleEnter(e) {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      e.target.blur();
-    }
   }
 
   useEffect(() => {
@@ -58,7 +50,6 @@ function SetsPage(props) {
         submitSearch={submitSearch}
         query={query}
         setQuery={setQuery}
-        handleEnter={handleEnter}
       />
       <div className={classes["sets-page--container"]}>
         <h1>All Sets</h1>
