@@ -2,7 +2,7 @@ import classes from "../styles/Home.module.scss";
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [value, setValue] = useState("");

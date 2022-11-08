@@ -6,7 +6,6 @@ function SearchBar({ submitSearch, query, setQuery, handleEnter }) {
 
   return (
     <div>
-      <p>Search Bar</p>
       <form onSubmit={submitSearch}>
         <div
           className={`${searchStyle.searchbar} ${

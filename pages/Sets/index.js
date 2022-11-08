@@ -1,13 +1,36 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Router from "next/router";
+
+// Components
 import SetCard from "../../components/SetCard";
 import Header from "../../components/Header";
+import SearchBar from "../../components/SearchBar";
+
+// Styles
 import classes from "../../styles/SetsPage.module.scss";
 import pokemon from "pokemontcgsdk";
 pokemon.configure({ apiKey: "c801d428-474b-415f-855f-b094a827f699" });
 
 function SetsPage(props) {
   const [setsData, setSetsData] = useState([]);
+
+  const [query, setQuery] = useState();
+
+  function submitSearch(e) {
+    e.preventDefault();
+    Router.push({
+      pathname: "/Search",
+      query: { keyword: `${query}` },
+    });
+  }
+
+  function handleEnter(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      e.target.blur();
+    }
+  }
 
   useEffect(() => {
     pokemon.set.all().then((sets) => setSetsData(sets));
@@ -31,6 +54,12 @@ function SetsPage(props) {
         <title>The Pokemon Library | Sets</title>
       </Head>
       <Header />
+      <SearchBar
+        submitSearch={submitSearch}
+        query={query}
+        setQuery={setQuery}
+        handleEnter={handleEnter}
+      />
       <div className={classes["sets-page--container"]}>
         <h1>All Sets</h1>
         <div className={classes["all-sets--container"]}>{individualSet}</div>
