@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Router from "next/router";
 
 // Components
 import PriceList from "../../../components/PriceList";
@@ -45,7 +47,16 @@ export async function getStaticProps(context) {
 }
 
 const cardPage = ({ card }) => {
+  const [query, setQuery] = useState();
   const tcgPrices = card.tcgplayer.prices;
+
+  function submitSearch(e) {
+    e.preventDefault();
+    Router.push({
+      pathname: "/Search",
+      query: { keyword: `${query}` },
+    });
+  }
 
   return (
     <>
@@ -54,6 +65,11 @@ const cardPage = ({ card }) => {
       </Head>
       <Header />
       <div className={classes["card-page--container"]}>
+        <SearchBar
+          submitSearch={submitSearch}
+          query={query}
+          setQuery={setQuery}
+        />
         <div className={classes["card-detail--header"]}>
           <h1>
             {card.name} - {card.set.name}
