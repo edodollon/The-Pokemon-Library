@@ -1,6 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
+
+// Components
 import PriceList from "../../../components/PriceList";
+import Header from "../../../components/Header";
+import SearchBar from "../../../components/SearchBar";
+
+// Styles
 import classes from "../../../styles/CardPage.module.scss";
 
 const axios = require("axios");
@@ -46,6 +52,7 @@ const cardPage = ({ card }) => {
       <Head>
         <title>{`The Pokemon Library | ${card.set.name} | ${card.name}`}</title>
       </Head>
+      <Header />
       <div className={classes["card-page--container"]}>
         <div className={classes["card-detail--header"]}>
           <h1>

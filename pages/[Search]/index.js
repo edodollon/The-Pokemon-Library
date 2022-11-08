@@ -72,11 +72,15 @@ function SearchPage() {
           query={query}
           setQuery={setQuery}
         />
-        <p>
-          {cards.length
-            ? `${cards.length} results for: '${query}'`
-            : `No results`}
-        </p>
+
+        {cards.length ? (
+          <p style={{ fontSize: "0.875rem" }}>
+            {cards.length} results for{" "}
+            <span style={{ fontWeight: 700 }}>"{query}"</span>
+          </p>
+        ) : (
+          <p style={{ fontSize: "0.875rem" }}>No results</p>
+        )}
 
         <div className={classes["cards-layout--container"]}>
           {currentCardArray}

@@ -46,12 +46,12 @@ function SetsPage(props) {
         <title>The Pokemon Library | Sets</title>
       </Head>
       <Header />
-      <SearchBar
-        submitSearch={submitSearch}
-        query={query}
-        setQuery={setQuery}
-      />
       <div className={classes["sets-page--container"]}>
+        <SearchBar
+          submitSearch={submitSearch}
+          query={query}
+          setQuery={setQuery}
+        />
         <h1>All Sets</h1>
         <div className={classes["all-sets--container"]}>{individualSet}</div>
       </div>
