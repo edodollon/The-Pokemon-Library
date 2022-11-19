@@ -64,11 +64,13 @@ function SetsPage(props) {
         <h1>All Sets</h1>
         <div className={classes["all-sets--container"]}>{individualSet}</div>
 
-        <Pagination
-          nPages={nPages}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        {currentRecords.length > 0 && (
+          <Pagination
+            nPages={nPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       </div>
     </>
   );

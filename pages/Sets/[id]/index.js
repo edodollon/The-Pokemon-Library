@@ -1,6 +1,12 @@
 import Head from "next/head";
+import { useState } from "react";
+
+// Components
 import Card from "../../../components/Card";
 import Header from "../../../components/Header";
+import Pagination from "../../../components/Pagination";
+
+// Styles
 import classes from "../../../styles/CardsLayout.module.scss";
 
 const axios = require("axios");
@@ -33,6 +39,14 @@ export async function getStaticProps(context) {
 }
 
 const SingleSetPage = ({ cards }) => {
+  // For pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(24);
+  const lastCard = currentPage * itemsPerPage;
+  const firstCard = lastCard - itemsPerPage;
+  const currentRecords = cards.slice(firstCard, lastCard);
+  const nPages = Math.ceil(cards.length / itemsPerPage);
+
   return (
     <>
       <Head>
@@ -44,8 +58,16 @@ const SingleSetPage = ({ cards }) => {
           {cards[0].set.name} <span>- {cards[0].set.releaseDate}</span>
         </h1>
         <div className={classes["cards-layout--container"]}>
-          <Card cards={cards} />
+          <Card cards={currentRecords} />
         </div>
+
+        {currentRecords.length > 0 && (
+          <Pagination
+            nPages={nPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       </div>
     </>
   );
