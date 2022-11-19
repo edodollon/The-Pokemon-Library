@@ -18,10 +18,12 @@ function SearchPage() {
   const router = useRouter();
   const [cards, setCards] = useState([]);
   const [query, setQuery] = useState(router.query.keyword);
+  const [currentQuery, setCurrentQuery] = useState(router.query.keyword);
   const [search, setSearch] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(14);
 
+  // For pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(24);
   const lastCard = currentPage * itemsPerPage;
   const firstCard = lastCard - itemsPerPage;
   const currentRecords = cards.slice(firstCard, lastCard);
@@ -29,8 +31,11 @@ function SearchPage() {
 
   function submitSearch(e) {
     e.preventDefault();
+    setCurrentQuery(query);
     setSearch(!search);
   }
+
+  console.log(query ? "TRUE" : "FALSE");
 
   // useEffect(() => {
   //   window.localStorage.setItem("Current_Search", query);
@@ -76,7 +81,7 @@ function SearchPage() {
         {cards.length ? (
           <p style={{ fontSize: "0.875rem" }}>
             {cards.length} results for{" "}
-            <span style={{ fontWeight: 700 }}>"{query}"</span>
+            <span style={{ fontWeight: 700 }}>"{currentQuery}"</span>
           </p>
         ) : (
           <p style={{ fontSize: "0.875rem" }}>No results</p>
