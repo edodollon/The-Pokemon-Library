@@ -35,8 +35,6 @@ function SearchPage() {
     setSearch(!search);
   }
 
-  console.log(query ? "TRUE" : "FALSE");
-
   // useEffect(() => {
   //   window.localStorage.setItem("Current_Search", query);
   // }, [query]);

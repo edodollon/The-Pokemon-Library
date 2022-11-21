@@ -1,3 +1,6 @@
+// Styles
+import pgStyle from "../styles/Pagination.module.scss";
+
 function Pagination({ nPages, currentPage, setCurrentPage }) {
   const nextPage = () => {
     if (currentPage !== nPages) {
@@ -12,15 +15,16 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
   };
 
   return (
-    <div>
-      <p>{nPages}</p>
+    <div className={pgStyle["pg--container"]}>
       <button disabled={currentPage === 1} onClick={prevPage}>
-        Previous page
+        Prev
       </button>
+      <p>
+        Page {currentPage} / {nPages}
+      </p>
       <button disabled={currentPage === nPages} onClick={nextPage}>
-        Next Page
+        Next
       </button>
-      <p>Current Page: {currentPage}</p>
     </div>
   );
 }

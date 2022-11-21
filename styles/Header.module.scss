@@ -1,9 +1,19 @@
 .header-container {
   background-color: #d03b3b;
   color: #e4cdcd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 4rem;
+  padding: 1rem;
 
   h1 {
     margin: 0;
+    z-index: 5;
+  }
+
+  .menu--btn {
+    right: 1rem;
+    z-index: 5;
   }
 }
