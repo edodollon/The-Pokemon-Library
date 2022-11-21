@@ -22,10 +22,8 @@ const Header = () => {
         <div
           className={classes["menu--btn"]}
           onClick={activateMenu}
-          style={openMenu ? { position: "fixed" } : { position: "static" }}
-        >
-          Menu
-        </div>
+          /*style={openMenu ? { position: "fixed" } : { position: "static" }}*/
+        ></div>
       </header>
       <Menu openMenu={openMenu} />
     </>

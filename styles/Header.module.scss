@@ -1,3 +1,13 @@
+@mixin button-style {
+  content: "";
+  background-color: green;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 35px;
+  height: 4px;
+}
+
 .header-container {
   background-color: #d03b3b;
   color: #e4cdcd;
@@ -13,7 +23,22 @@
   }
 
   .menu--btn {
+    cursor: pointer;
+    display: inline-block;
+    position: fixed;
     right: 1rem;
+    height: 35px;
+    width: 35px;
     z-index: 5;
   }
+}
+
+.menu--btn::before {
+  @include button-style;
+  transform: translateY(-4px);
+}
+
+.menu--btn::after {
+  @include button-style;
+  transform: translateY(4px);
 }
