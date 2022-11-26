@@ -20,7 +20,7 @@ const Header = () => {
           TPL
         </h1>
         <div
-          className={classes["menu--btn"]}
+          className={classes[`${openMenu ? "menu--btn-active" : "menu--btn"}`]}
           onClick={activateMenu}
           /*style={openMenu ? { position: "fixed" } : { position: "static" }}*/
         ></div>

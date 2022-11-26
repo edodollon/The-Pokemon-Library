@@ -1,4 +1,4 @@
-@mixin button-style {
+@mixin hamburger-bar {
   content: "";
   background-color: green;
   position: absolute;
@@ -6,7 +6,27 @@
   left: 0;
   width: 38px;
   height: 5px;
-  transition: transform 0.4s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+@mixin menu-button-style {
+  cursor: pointer;
+  display: inline-block;
+  position: fixed;
+  right: 1rem;
+  height: 35px;
+  width: 35px;
+  z-index: 5;
+
+  &::before {
+    @include hamburger-bar;
+    transform: translateY(-6px);
+  }
+
+  &::after {
+    @include hamburger-bar;
+    transform: translateY(6px);
+  }
 }
 
 .header-container {
@@ -24,13 +44,7 @@
   }
 
   .menu--btn {
-    cursor: pointer;
-    display: inline-block;
-    position: fixed;
-    right: 1rem;
-    height: 35px;
-    width: 35px;
-    z-index: 5;
+    @include menu-button-style;
 
     &:hover {
       &::before {
@@ -41,19 +55,20 @@
         transform: translateY(4px);
       }
     }
+  }
+
+  .menu--btn-active {
+    @include menu-button-style;
 
     &::before {
-      @include button-style;
-      transform: translateY(-6px);
+      transform: translateY(0) rotate(40deg);
     }
 
     &::after {
-      @include button-style;
-      transform: translateY(6px);
+      transform: translateY(0) rotate(-40deg);
     }
   }
 }
-
 // &:hover {
 //   transform: translateY(0) rotate(40deg);
 // }&:hover {
