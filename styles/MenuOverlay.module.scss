@@ -1,8 +1,19 @@
+@mixin link-style {
+  cursor: pointer;
+  display: inline;
+  font-weight: bold;
+}
+
 .menu--container {
-  background-color: white;
+  background-color: #d03b3b;
+  color: #e4cdcd;
   height: 100%;
   width: 100%;
   z-index: 4;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
 }
 
 .hidden {
@@ -23,20 +34,38 @@
   padding: 10rem 1rem 0 1rem;
   width: 100%;
 
+  @media screen and (min-width: 1024px) {
+    width: 48%;
+  }
+
+  nav {
+    border-bottom: #e4cdcd 1px solid;
+    margin: 0 auto;
+    width: 90%;
+
+    @media screen and (min-width: 1024px) {
+      border-bottom: none;
+    }
+  }
+
   ul {
     display: inline-flex;
     flex-direction: column;
+    padding: 0;
     list-style: none;
     line-height: 1.6;
 
     li {
-      cursor: pointer;
-      display: inline;
-      font-size: 1.75rem;
-      font-weight: bold;
+      @include link-style;
+      font-size: calc(28px + 37 * ((100vw - 460px) / 800));
       margin-bottom: 0.5rem;
       padding-left: 1.75rem;
       position: relative;
+
+      &:hover,
+      &:active {
+        color: #fff;
+      }
 
       span {
         font-size: 15px;
@@ -46,6 +75,54 @@
         left: 0;
         opacity: 0.3;
       }
+    }
+  }
+}
+
+.secondary-nav--container {
+  text-align: center;
+  margin-top: 2.5rem;
+  width: 100%;
+
+  .blurb {
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem;
+
+    .blurb {
+      color: black;
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+  }
+
+  .contact--button {
+    @include link-style;
+    background-color: #fff;
+    border-radius: 30px;
+    color: #d03b3b;
+    font-size: 15px;
+    padding: 18px 22px;
+
+    &:hover,
+    &:active {
+      color: #fff;
+    }
+
+    @media screen and (min-width: 1024px) {
+      background-color: #d03b3b;
+      color: #e4cdcd;
+      margin: 0 auto;
+      width: 8rem;
     }
   }
 }

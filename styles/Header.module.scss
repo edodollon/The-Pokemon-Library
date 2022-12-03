@@ -1,6 +1,6 @@
 @mixin hamburger-bar {
   content: "";
-  background-color: green;
+  background-color: #e4cdcd;
   position: absolute;
   top: 50%;
   left: 0;
@@ -62,15 +62,16 @@
 
     &::before {
       transform: translateY(0) rotate(40deg);
+      @media screen and (min-width: 1024px) {
+        background-color: #d03b3b;
+      }
     }
 
     &::after {
       transform: translateY(0) rotate(-40deg);
+      @media screen and (min-width: 1024px) {
+        background-color: #d03b3b;
+      }
     }
   }
 }
-// &:hover {
-//   transform: translateY(0) rotate(40deg);
-// }&:hover {
-//   transform: translateY(0) rotate(-40deg);
-// }
