@@ -1,4 +1,12 @@
+.current-page {
+  background-color: green;
+}
+
 .pg--container {
   display: flex;
   justify-content: center;
+
+  .pg--buttons {
+    display: flex;
+  }
 }
