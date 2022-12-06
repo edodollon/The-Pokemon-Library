@@ -1,5 +1,15 @@
+@mixin button-style {
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  margin: 7px;
+  padding: 1rem;
+}
+
 .current-page {
-  background-color: green;
+  @include button-style;
+  background-color: #d03b3b;
+  color: #ffffff;
 }
 
 .pg--container {
@@ -9,4 +19,9 @@
   .pg--buttons {
     display: flex;
   }
+}
+
+.pg--single-btn {
+  @include button-style;
+  background-color: #dedede;
 }
