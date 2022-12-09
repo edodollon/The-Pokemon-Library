@@ -16,7 +16,90 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
     numArray.push(i);
   }
 
-  const pageButtons = numArray.map((x) => (
+  const leftSibling = numArray[currentPage - 1];
+  const rightSibling = numArray[currentPage + 1];
+
+  const shortEnd = (
+    <>
+      <li
+        key={nPages - 2}
+        value={nPages - 2}
+        onClick={clickedPage}
+        className={
+          nPages - 2 === currentPage
+            ? pgStyle["current-page"]
+            : pgStyle["pg--single-btn"]
+        }
+      >
+        {nPages - 2}
+      </li>
+      <li
+        key={nPages - 1}
+        value={nPages - 1}
+        onClick={clickedPage}
+        className={
+          nPages - 1 === currentPage
+            ? pgStyle["current-page"]
+            : pgStyle["pg--single-btn"]
+        }
+      >
+        {nPages - 1}
+      </li>
+      <li
+        value={nPages}
+        onClick={clickedPage}
+        className={
+          nPages === currentPage
+            ? pgStyle["current-page"]
+            : pgStyle["pg--single-btn"]
+        }
+      >
+        {nPages}
+      </li>
+    </>
+  );
+
+  const pageButtonsShort = (
+    <>
+      <li
+        key={leftSibling}
+        value={leftSibling}
+        onClick={clickedPage}
+        className={
+          leftSibling === currentPage
+            ? pgStyle["current-page"]
+            : pgStyle["pg--single-btn"]
+        }
+      >
+        {leftSibling}
+      </li>
+      <li
+        key={numArray[`${currentPage}`]}
+        value={numArray[`${currentPage}`]}
+        onClick={clickedPage}
+        className={
+          numArray[`${currentPage}`] === currentPage
+            ? pgStyle["current-page"]
+            : pgStyle["pg--single-btn"]
+        }
+      >
+        {numArray[`${currentPage}`]}
+      </li>
+      <li
+        value={rightSibling}
+        onClick={clickedPage}
+        className={
+          rightSibling === currentPage
+            ? pgStyle["current-page"]
+            : pgStyle["pg--single-btn"]
+        }
+      >
+        {rightSibling}
+      </li>
+    </>
+  );
+
+  const pageButtonsLong = numArray.map((x) => (
     <li
       key={x}
       value={x}
@@ -46,7 +129,13 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
       <button disabled={currentPage === 1} onClick={prevPage}>
         Prev
       </button>
-      <ul className={pgStyle["pg--buttons"]}>{pageButtons}</ul>
+      <ul className={pgStyle["pg--buttons"]}>
+        {nPages > 4
+          ? currentPage >= nPages - 1
+            ? shortEnd
+            : pageButtonsShort
+          : pageButtonsLong}
+      </ul>
       <button disabled={currentPage === nPages} onClick={nextPage}>
         Next
       </button>
