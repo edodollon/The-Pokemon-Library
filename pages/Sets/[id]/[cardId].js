@@ -46,7 +46,7 @@ export async function getStaticProps(context) {
   };
 }
 
-const cardPage = ({ card }) => {
+const CardPage = ({ card }) => {
   const [query, setQuery] = useState();
   const tcgPrices = card.tcgplayer.prices;
 
@@ -118,4 +118,4 @@ const cardPage = ({ card }) => {
   );
 };
 
-export default cardPage;
+export default CardPage;
