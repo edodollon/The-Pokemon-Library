@@ -7,6 +7,16 @@
   padding: 1rem;
 }
 
+@mixin arrow-buttons {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1rem;
+  height: 80%;
+  width: 4rem;
+}
+
 .current-page {
   @include button-style;
   background-color: #d03b3b;
@@ -16,12 +26,25 @@
 .pg--container {
   display: flex;
   justify-content: center;
-}
+  align-items: center;
 
-.pg--buttons {
-  display: flex;
-  list-style: none;
-  padding: 0;
+  .pg--buttons {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+
+  .arrow-btn {
+    @include arrow-buttons;
+    background-color: #d03b3b;
+    color: #ffffff;
+  }
+
+  .arrow-btn--disabled {
+    @include arrow-buttons;
+    background-color: #dedede;
+    color: #c6c5c5;
+  }
 }
 
 .pg--single-btn {

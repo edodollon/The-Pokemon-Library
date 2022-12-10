@@ -126,18 +126,36 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
 
   return (
     <div className={pgStyle["pg--container"]}>
-      <button disabled={currentPage === 1} onClick={prevPage}>
-        Prev
+      <button
+        style={{ marginRight: "1rem" }}
+        className={
+          currentPage !== 1
+            ? pgStyle["arrow-btn"]
+            : pgStyle["arrow-btn--disabled"]
+        }
+        disabled={currentPage === 1}
+        onClick={prevPage}
+      >
+        {String.fromCharCode(60)}
       </button>
       <ul className={pgStyle["pg--buttons"]}>
-        {nPages > 4
+        {nPages > 3
           ? currentPage >= nPages - 1
             ? shortEnd
             : pageButtonsShort
           : pageButtonsLong}
       </ul>
-      <button disabled={currentPage === nPages} onClick={nextPage}>
-        Next
+      <button
+        style={{ marginLeft: "1rem" }}
+        className={
+          currentPage !== nPages
+            ? pgStyle["arrow-btn"]
+            : pgStyle["arrow-btn--disabled"]
+        }
+        disabled={currentPage === nPages}
+        onClick={nextPage}
+      >
+        {String.fromCharCode(62)}
       </button>
     </div>
   );
