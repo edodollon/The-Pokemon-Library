@@ -23,16 +23,16 @@ const PriceList = ({ prices } = props) => {
       //   );
       // }
     }
+  } else {
+    content.push(
+      <li>
+        <span className={classes["bold-text"]}>{prices}:</span>{" "}
+        <span>
+          <span style={{ color: "red" }}>N/A</span>
+        </span>
+      </li>
+    );
   }
-
-  content.push(
-    <li>
-      <span className={classes["bold-text"]}>{prices}:</span>{" "}
-      <span>
-        <span style={{ color: "red" }}>N/A</span>
-      </span>
-    </li>
-  );
 
   return content;
 };
