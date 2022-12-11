@@ -48,7 +48,11 @@ export async function getStaticProps(context) {
 
 const CardPage = ({ card }) => {
   const [query, setQuery] = useState();
-  const tcgPrices = card.tcgplayer.prices;
+
+  const tcgPrices =
+    typeof card.tcgplayer !== "undefined"
+      ? card.tcgplayer.prices
+      : "No data available";
 
   function submitSearch(e) {
     e.preventDefault();
