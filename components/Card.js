@@ -7,7 +7,7 @@ function Card({ cards }) {
     return (
       <div key={cardDetail.id} className={classes["card--container"]}>
         <p>
-          {cardDetail.name} <br /> {cardDetail.set.id}
+          {cardDetail.name} <br /> {cardDetail.id}
         </p>
         <div key={cardDetail.id}>
           <Link
@@ -18,7 +18,7 @@ function Card({ cards }) {
             passHref
           >
             <Image
-              src={cardDetail.images.small}
+              src={cardDetail.images.large}
               alt={`Card image for ${cardDetail.name}`}
               layout="fill"
               objectFit="contain"

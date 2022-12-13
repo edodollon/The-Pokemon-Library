@@ -74,48 +74,52 @@ const CardPage = ({ card }) => {
           query={query}
           setQuery={setQuery}
         />
-        <div className={classes["card-detail--header"]}>
-          <h1>
-            {card.name} - {card.set.name}
-          </h1>
-          <p>{card.set.name}</p>
-        </div>
-
-        <div className={classes["card-image--container"]}>
-          <Image
-            src={card.images.small}
-            alt={`Image for ${card.name}`}
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
-
-        <div>
-          <h2>Card Details</h2>
-          <div className={classes["card-details--container"]}>
-            <p>
-              <span className={classes["bold-text"]}>
-                Card Number / Rarity:
-              </span>{" "}
-              {card.number} / {card.rarity}
-            </p>
-            <p>
-              <span className={classes["bold-text"]}>Flavor Text:</span>{" "}
-              {card.flavorText ? card.flavorText : "N/A"}
-            </p>
-            <p>
-              <span className={classes["bold-text"]}>Artist:</span>{" "}
-              {card.artist}
-            </p>
+        <div className={classes["response--container"]}>
+          <div className={classes["card-detail--header"]}>
+            <h1>
+              {card.name} - {card.set.name}
+            </h1>
+            <p>{card.set.name}</p>
           </div>
-        </div>
 
-        <div className={classes["card-prices--container"]}>
-          <h2>Current Price Points</h2>
-          <p>Market Price via TCGplayer</p>
-          <ul>
-            <PriceList prices={tcgPrices} />
-          </ul>
+          <div className={classes["border--wrapper"]}>
+            <div className={classes["card-image--container"]}>
+              <Image
+                src={card.images.large}
+                alt={`Image for ${card.name}`}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
+
+          <div className={classes["card-details--wrapper"]}>
+            <h2>Card Details</h2>
+            <div className={classes["card-details--container"]}>
+              <p>
+                <span className={classes["bold-text"]}>
+                  Card Number / Rarity:
+                </span>{" "}
+                {card.number} / {card.rarity}
+              </p>
+              <p>
+                <span className={classes["bold-text"]}>Flavor Text:</span>{" "}
+                {card.flavorText ? card.flavorText : "N/A"}
+              </p>
+              <p>
+                <span className={classes["bold-text"]}>Artist:</span>{" "}
+                {card.artist}
+              </p>
+            </div>
+          </div>
+
+          <div className={classes["card-prices--container"]}>
+            <h2>Current Price Points</h2>
+            <p>Market Price via TCGplayer</p>
+            <ul>
+              <PriceList prices={tcgPrices} />
+            </ul>
+          </div>
         </div>
       </div>
     </>

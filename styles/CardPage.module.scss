@@ -1,23 +1,44 @@
-.bold-text {
-  font-weight: bold;
-}
-
 @mixin border-style {
   border: solid 1px #d4d7e2;
   border-radius: 0.5rem;
 }
 
+.bold-text {
+  font-weight: bold;
+}
+
 .card-page--container {
   padding: 0 1rem;
+
+  @media screen and (min-width: 1024px) {
+    .response--container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-column-gap: 2rem;
+      padding: 16px 24px 16px;
+
+      div:last-of-type {
+        grid-column: 2 / 3;
+      }
+    }
+  }
 
   h2 {
     font-size: 1.125rem;
   }
 
   .card-detail--header {
+    @media screen and (min-width: 1024px) {
+      grid-column: 2 / 3;
+    }
+
     h1 {
       font-size: 23px;
       margin-bottom: 0;
+
+      @media screen and (min-width: 768px) {
+        font-size: 30px;
+      }
     }
 
     p {
@@ -26,21 +47,38 @@
     }
   }
 
-  .card-image--container {
+  .border--wrapper {
     background-color: #eef0f1;
     border-radius: 0.5rem;
-    // padding: 1rem 0;
-    position: relative;
-    height: 20rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media screen and (min-width: 1024px) {
+      grid-column: 1 / 2;
+      grid-row: 1 / span 3;
+    }
+
+    .card-image--container {
+      background-color: #eef0f1;
+      position: relative;
+      height: 20rem;
+      text-align: center;
+    }
   }
 
-  .card-details--container {
-    @include border-style();
-    padding: 1rem;
+  .card-details--wrapper {
+    margin-top: 2rem;
+
+    .card-details--container {
+      @include border-style();
+      padding: 1rem;
+    }
   }
 
   .card-prices--container {
+    margin-top: 2rem;
+
     h2 {
       margin-bottom: 0;
     }

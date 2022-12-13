@@ -54,7 +54,7 @@ function SearchPage() {
       setCards(c);
       setCurrentPage(1);
     });
-  }, [search, query]);
+  }, [search]);
 
   const currentCardArray =
     currentRecords === undefined || currentRecords.length === 0 ? (
